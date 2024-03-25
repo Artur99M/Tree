@@ -1,0 +1,199 @@
+readfile >>> txt.numlines = 34
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a605f80, *nline = 0
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 10
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15a605f88
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15a605c90
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a605c90, *nline = 2
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 5
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15a605c98
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15a605fa0
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a605fa0, *nline = 4
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 3
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15a605fa8
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15a605f00
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a605f00, *nline = 6
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 2
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15a605f08
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15a704080
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a704080, *nline = 8
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x0
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15a605f10
+TreeRead >>> pNode->right = 0x15a704080
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a704080, *nline = 9
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x0
+TreeRead >>> third sscanf: c = }
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x15a605f00
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15a605fb0
+TreeRead >>> pNode->right = 0x15a704080
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a704080, *nline = 11
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x0
+TreeRead >>> third sscanf: c = }
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x15a605fa0
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15a605ca0
+TreeRead >>> pNode->right = 0x15a704080
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a704080, *nline = 13
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 8
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15a704088
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15b004080
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15b004080, *nline = 15
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 7
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15b004088
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15a7040a0
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a7040a0, *nline = 17
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 6
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15a7040a8
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15a7040c0
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a7040c0, *nline = 19
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x0
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15a7040b0
+TreeRead >>> pNode->right = 0x15a7040c0
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a7040c0, *nline = 20
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x0
+TreeRead >>> third sscanf: c = }
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x15a7040a0
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15b004090
+TreeRead >>> pNode->right = 0x15a7040c0
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a7040c0, *nline = 22
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x0
+TreeRead >>> third sscanf: c = }
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x15b004080
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15a704090
+TreeRead >>> pNode->right = 0x15a7040c0
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15a7040c0, *nline = 24
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x0
+TreeRead >>> third sscanf: c = }
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x15a704080
+TreeRead >>> third sscanf: c = }
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x15a605c90
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15a605f90
+TreeRead >>> pNode->right = 0x15b0040a0
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15b0040a0, *nline = 27
+TreeRead >>> txt->line[*nline].str = "{"
+TreeRead >>> first sscanf: c = {
+TreeRead >>> func start do it smth
+TreeRead >>> value = 12
+TreeRead >>> find memmory for left
+TreeRead >>> &(pNode->left) = 0x15b0040a8
+TreeRead >>> start see left
+TreeRead >>> pNode->left = 0x15b0040c0
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15b0040c0, *nline = 29
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see left
+TreeRead >>> pNode->left = 0x0
+TreeRead >>> find memmory for right
+TreeRead >>> &(pNode->right) = 0x15b0040b0
+TreeRead >>> pNode->right = 0x15b0040c0
+TreeRead >>> start see right
+TreeRead >>> I start sscanf
+TreeRead >>> pNode = 0x15b0040c0, *nline = 30
+TreeRead >>> txt->line[*nline].str = "*"
+TreeRead >>> first sscanf: c = *
+TreeRead >>> free memory
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x0
+TreeRead >>> third sscanf: c = }
+TreeRead >>> finish see right
+TreeRead >>> pNode->right = 0x15b0040a0
+TreeRead >>> third sscanf: c = }
+readfile >>> finish

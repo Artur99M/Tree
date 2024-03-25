@@ -26,6 +26,7 @@ int main()
     TreePrint (tree);
     TreeDtor  (tree);
     readfile  (&tree2, "data.txt");
+    // printf ("tree2->value = %d\n", tree2->value);
     TreePrint (tree2);
     // TreeDtor  (tree2);
     puts ("bark");

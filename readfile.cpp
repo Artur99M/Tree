@@ -1,6 +1,7 @@
 #include "readfile.h"
 #include "Onegin/header/readtext.h"
 #include "Onegin/header/txtdtor.h"
+#include "def.h"
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <string.h>
@@ -10,7 +11,7 @@
 #define IN_BRANCH '{'
 #define OUT_BRANCH '}'
 
-TREE_ERROR TreeRead (Node* pNode, text* txt, size_t* nline, Node* array);
+TREE_ERROR TreeRead (Node* pNode, text* txt, size_t* nline);
 
 
 TREE_ERROR readfile (Node** Tree, char* file)
@@ -19,71 +20,80 @@ TREE_ERROR readfile (Node** Tree, char* file)
 
     text txt;
     readtext (&txt, file);
-    printf ("readfile >>> txt.numlines = %lu\n", txt.numlines);
+    PRINT_DEBUG ("readfile >>> txt.numlines = %lu\n", txt.numlines);
     size_t nline = 0;
-    Node* array = (Node*) calloc (txt.numlines, sizeof (Node));
-    *Tree = array;
-    TREE_ERROR ERROR = TreeRead (*Tree, &txt, &nline, array);
-    printf ("readfile >>> finish\n");
+    // Node* array = (Node*) calloc (txt.numlines, sizeof (Node));
+    // *Tree = array;
+    TREE_ERROR ERROR = TreeRead (*Tree, &txt, &nline);
+    PRINT_DEBUG ("readfile >>> finish\n");
 
     txtDtor (&txt);
 
     return ERROR;
 }
 
-TREE_ERROR TreeRead (Node* pNode, text* txt, size_t* nline, Node* array)
+TREE_ERROR TreeRead (Node* pNode, text* txt, size_t* nline)
 {
-    usleep (10);
-    if (pNode == nullptr || txt == nullptr || nline == nullptr || array == nullptr)
+
+    if (pNode == nullptr || txt == nullptr || nline == nullptr)
         return TREE_NULLPTR;
 
 
     char c = '\0';
-    printf ("TreeRead >>> I start sscanf\n");
-    printf ("TreeRead >>> pNode = %p, *nline = %lu\n", pNode, *nline);
-    printf ("TreeRead >>> txt->line[*nline].str = \"%s\"\n", txt->line[*nline].str);
+    PRINT_DEBUG ("TreeRead >>> I start sscanf\n");
+    PRINT_DEBUG ("TreeRead >>> pNode = %p, *nline = %lu\n", pNode, *nline);
+    PRINT_DEBUG ("TreeRead >>> txt->line[*nline].str = \"%s\"\n", txt->line[*nline].str);
     sscanf (txt->line[*nline].str, "%c", &c);
-    printf ("TreeRead >>> first sscanf: c = %c\n", c);
+    PRINT_DEBUG ("TreeRead >>> first sscanf: c = %c\n", c);
     (*nline)++;
 
     if (c == '{')
     {
-        printf ("TreeRead >>> func start do it smth\n");
+        PRINT_DEBUG ("TreeRead >>> func start do it smth\n");
         sscanf (txt->line[*nline].str, "%d", &(pNode->value));
         (*nline)++;
-        printf ("TreeRead >>> value = %d\n", pNode->value);
-        printf ("TreeRead >>> find memmory for left\n");
-        printf ("TreeRead >>> &(pNode->left) = %p\n", &(pNode->left));
-        pNode->left = array + (*nline);
-        printf ("TreeRead >>> start see left\n");
-        printf ("TreeRead >>> pNode->left = %p\n", pNode->left);
-        if (TreeRead (pNode->left, txt, nline, array) == TREE_VOID)
+        PRINT_DEBUG ("TreeRead >>> value = %d\n", pNode->value);
+        PRINT_DEBUG ("TreeRead >>> find memmory for left\n");
+        PRINT_DEBUG ("TreeRead >>> &(pNode->left) = %p\n", &(pNode->left));
+        if ((pNode->left = (Node*) calloc (1, sizeof (Node))) == nullptr)
+            return TREE_NULLPTR;
+        PRINT_DEBUG ("TreeRead >>> start see left\n");
+        PRINT_DEBUG ("TreeRead >>> pNode->left = %p\n", pNode->left);
+        if (TreeRead (pNode->left, txt, nline) == TREE_VOID)
+        {
+            free (pNode->left);
             pNode->left = nullptr;
-        printf ("TreeRead >>> finish see left\n");
-        printf ("TreeRead >>> pNode->left = %p\n", pNode->left);
-        printf ("TreeRead >>> find memmory for right\n");
-        printf ("TreeRead >>> &(pNode->right) = %p\n", &(pNode->right));
-        pNode->right = array + (*nline);
-        printf ("TreeRead >>> pNode->right = %p\n", pNode->right);
-        printf ("TreeRead >>> start see right\n");
-        if (TreeRead (pNode->right, txt, nline, array) == TREE_VOID)
+        }
+        PRINT_DEBUG ("TreeRead >>> finish see left\n");
+        PRINT_DEBUG ("TreeRead >>> pNode->left = %p\n", pNode->left);
+        PRINT_DEBUG ("TreeRead >>> find memmory for right\n");
+        PRINT_DEBUG ("TreeRead >>> &(pNode->right) = %p\n", &(pNode->right));
+        if ((pNode->right = (Node*) calloc (1, sizeof (Node))) == nullptr)
+            return TREE_NULLPTR;
+        PRINT_DEBUG ("TreeRead >>> pNode->right = %p\n", pNode->right);
+        PRINT_DEBUG ("TreeRead >>> start see right\n");
+        if (TreeRead (pNode->right, txt, nline) == TREE_VOID)
+        {
+            free (pNode->right);
             pNode->right = nullptr;
-        printf ("TreeRead >>> finish see right\n");
-        printf ("TreeRead >>> pNode->right = %p\n", pNode->right);
+        }
+        PRINT_DEBUG ("TreeRead >>> finish see right\n");
+        PRINT_DEBUG ("TreeRead >>> pNode->right = %p\n", pNode->right);
         sscanf (txt->line[*nline].str, "%c", &c);
-        printf ("TreeRead >>> third sscanf: c = %c\n", c);
+        PRINT_DEBUG ("TreeRead >>> third sscanf: c = %c\n", c);
         if (c != '}')
             return TREE_HZ_ERROR;
         (*nline)++;
+        PRINT_DEBUG ("TreeRead >>> finish: pNode = %p, pNode->value = %d, pNode->left = %p, pNode->right = %p\n", pNode, pNode->value, pNode->left, pNode->right);
     }
     else if (c == '*')
     {
-        printf ("TreeRead >>> free memory\n");
+        PRINT_DEBUG ("TreeRead >>> free memory\n");
         return TREE_VOID;
     }
     else
     {
-        printf ("TreeRead >>> Strange ERROR\n");
+        PRINT_DEBUG ("TreeRead >>> Strange ERROR\n");
         return TREE_HZ_ERROR;
     }
 
