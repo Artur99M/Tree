@@ -80,7 +80,7 @@ TREE_ERROR TreeRead (Node* pNode, text* txt, size_t* nline)
         PRINT_DEBUG ("TreeRead >>> finish see right\n");
         PRINT_DEBUG ("TreeRead >>> pNode->right = %p\n", pNode->right);
         sscanf (txt->line[*nline].str, "%c", &c);
-        PRINT_DEBUG ("TreeRead >>> third sscanf: c = %c\n", c);
+        PRINT_DEBUG ("TreeRead >>> third sscanf: c = %c[%d]\n", c, c);
         if (c != '}')
             return TREE_HZ_ERROR;
         (*nline)++;

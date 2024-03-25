@@ -76,10 +76,10 @@ TREE_ERROR TreeCtor (Node* Tree)
     return TREE_NO_ERROR;
 }
 
-TREE_ERROR TreeDtor (Node* Tree)
+void TreeDtor (Node* Tree)
 {
     if (Tree == nullptr)
-        return TREE_NULLPTR;
+        return;
 
     if (Tree->left != nullptr)
         TreeDtor (Tree->left);
@@ -93,7 +93,7 @@ TREE_ERROR TreeDtor (Node* Tree)
     Tree->left = nullptr;
     Tree->right = nullptr;
 
-    return TREE_NO_ERROR;
+    return;
 }
 
 TREE_ERROR TreeDelete (Node* Tree, const elem_t* elem)

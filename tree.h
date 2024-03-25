@@ -27,7 +27,7 @@ TREE_ERROR TreeAdd (Node*, const elem_t*);
 TREE_ERROR TreePrint (const Node*);
 TREE_ERROR TreeCtor (Node*, const elem_t*);
 TREE_ERROR TreeCtor (Node*);
-TREE_ERROR TreeDtor (Node*);
 TREE_ERROR TreeAddNode (Node*, Node*);
 TREE_ERROR TreeDelete (Node*, const elem_t*);
+void TreeDtor (Node*);
 #endif
